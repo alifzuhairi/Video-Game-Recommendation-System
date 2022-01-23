@@ -51,11 +51,11 @@ def get_recommendations2(title):
     sim_scores2 = list(enumerate(cosine_sim2[idx2]))
     sim_scores2 = sorted(sim_scores2, key=lambda x: x[1], reverse=True)
     sim_scores2 = sim_scores2[1:11]
-    movie_indices2 = [i[0] for i in sim_scores2]
-    tit2 = df4['name'].iloc[movie_indices2]
-    dat2 = df4['genres'].iloc[movie_indices2]
-    dev2 = df4['developer'].iloc[movie_indices2]
-    pic2 = df4['header_image'].iloc[movie_indices2]
+    game_indices2 = [i[0] for i in sim_scores2]
+    tit2 = df4['name'].iloc[game_indices2]
+    dat2 = df4['genres'].iloc[game_indices2]
+    dev2 = df4['developer'].iloc[game_indices2]
+    pic2 = df4['header_image'].iloc[game_indices2]
     return_df2 = pd.DataFrame(columns=['name','genres','developer','header_image'])
     return_df2['name'] = tit2
     return_df2['genres'] = dat2
