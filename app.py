@@ -14,7 +14,7 @@ count = CountVectorizer(stop_words='english')
 count_matrix = count.fit_transform(df2['Name'])
 cosine_sim = cosine_similarity(count_matrix, count_matrix)
 df2 = df2.reset_index()
-indices = pd.Series(df2.index, index=df2['Name'])
+indices = pd.Series(df2.index, index=df2['Name']) 
 all_titles = [df2['Name'][i] for i in range(len(df2['Name']))]
 
 count2 = CountVectorizer(stop_words='english')
@@ -36,12 +36,14 @@ def get_recommendations(title):
     tit = df2['Name'].iloc[game_indices]
     dat = df2['Genres'].iloc[game_indices]
     pic = df2['PicURL'].iloc[game_indices]
-    decs = df2['Description'].iloc[game_indices]
-    return_df = pd.DataFrame(columns=['Name','Genres','PicURL','Description'])
+    dev = df2['Developer'].iloc[game_indices]
+    siz = df2['Size'].iloc[game_indices]
+    return_df = pd.DataFrame(columns=['Name','Genres','PicURL','Developer','Size'])
     return_df['Name'] = tit
     return_df['Genres'] = dat
     return_df['PicURL'] = pic
-    return_df['Description'] = decs
+    return_df['Developer'] = dev
+    return_df['Size'] = siz
     
     return return_df
 
@@ -51,11 +53,11 @@ def get_recommendations2(title):
     sim_scores2 = list(enumerate(cosine_sim2[idx2]))
     sim_scores2 = sorted(sim_scores2, key=lambda x: x[1], reverse=True)
     sim_scores2 = sim_scores2[1:11]
-    movie_indices2 = [i[0] for i in sim_scores2]
-    tit2 = df4['name'].iloc[movie_indices2]
-    dat2 = df4['genres'].iloc[movie_indices2]
-    dev2 = df4['developer'].iloc[movie_indices2]
-    pic2 = df4['header_image'].iloc[movie_indices2]
+    game_indices2 = [i[0] for i in sim_scores2]
+    tit2 = df4['name'].iloc[game_indices2]
+    dat2 = df4['genres'].iloc[game_indices2]
+    dev2 = df4['developer'].iloc[game_indices2]
+    pic2 = df4['header_image'].iloc[game_indices2]
     return_df2 = pd.DataFrame(columns=['name','genres','developer','header_image'])
     return_df2['name'] = tit2
     return_df2['genres'] = dat2
@@ -79,14 +81,16 @@ def recommend():
             names = []
             genre = []
             picurl = []
-            decs = []
+            dev = []
+            siz = []
             for i in range(len(result_final)):
                 names.append(result_final.iloc[i][0])
                 genre.append(result_final.iloc[i][1])
                 picurl.append(result_final.iloc[i][2])
-                decs.append(result_final.iloc[i][3])
+                dev.append(result_final.iloc[i][3])
+                siz.append(result_final.iloc[i][4])
             #return recommendation
-            return flask.render_template('mobilegame.html',game_names=names,game_genre=genre,game_decs=decs,game_pic=picurl,search_name=g_name)
+            return flask.render_template('mobilegame.html',game_names=names,game_genre=genre,game_dev=dev,game_pic=picurl,game_size=siz,search_name=g_name)
 
 
 

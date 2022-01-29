@@ -12,6 +12,7 @@
  
      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
      <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/game_card2.css') }}">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
  </head>
@@ -50,91 +51,184 @@
          <div class="col">
              <div class="d-flex">
                  <div class="container" id="Body-Content">
-                     
+                    <h1 class="text-capitalize" id="Heading-Content">Recommendation</h1>
 
+                    
+                    <div class="hero-container">
                         <center>
-                            <table class="game_table" align="center">
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Image</th>
-                                    <th>Game Title</th>
-                                    <th>Genre</th>
-                                    <th>Description</th>
-                                </tr>
-                                <tbody class="table_body">
-                                    <tr>
-                                        <th>1</th>
-                                        <td><img src="{{ game_pic[0] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[0] }}</td>
-                                        <td>{{ game_genre[0] }}</td>
-                                        <td>{{ game_decs[0] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>2</th>
-                                        <td><img src="{{ game_pic[1] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[1] }}</td>
-                                        <td>{{ game_genre[1] }}</td>
-                                        <td>{{ game_decs[1] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <td><img src="{{ game_pic[2] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[2] }}</td>
-                                        <td>{{ game_genre[2] }}</td>
-                                        <td>{{ game_decs[2] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>4</th>
-                                        <td><img src="{{ game_pic[3] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[3] }}</td>
-                                        <td>{{ game_genre[3] }}</td>
-                                        <td>{{ game_decs[3] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>5</th>
-                                        <td><img src="{{ game_pic[4] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[4] }}</td>
-                                        <td>{{ game_genre[4] }}</td>
-                                        <td>{{ game_decs[4] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>6</th>
-                                        <td><img src="{{ game_pic[5] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[5] }}</td>
-                                        <td>{{ game_genre[5] }}</td>
-                                        <td>{{ game_decs[5] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>7</th>
-                                        <td><img src="{{ game_pic[6] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[6] }}</td>
-                                        <td>{{ game_genre[6] }}</td>
-                                        <td>{{ game_decs[6] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>8</th>
-                                        <td><img src="{{ game_pic[7] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[7] }}</td>
-                                        <td>{{ game_genre[7] }}</td>
-                                        <td>{{ game_decs[7] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>9</th>
-                                        <td><img src="{{ game_pic[8] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[8] }}</td>
-                                        <td>{{ game_genre[8] }}</td>
-                                        <td>{{ game_decs[8] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>10</th>
-                                        <td><img src="{{ game_pic[9] }}" width="100" height="100"></td>
-                                        <td>{{ game_names[9] }}</td>
-                                        <td>{{ game_genre[9] }}</td>
-                                        <td>{{ game_decs[9] }}</td>
-                                    </tr>
-                                </tbody>
+                        <table>
+                        <tr>
+                        <th>
+                            <div class="main-container">
+                                <div class="poster-container">
+                                    <a href="#"><img src="{{ game_pic[0] }}" class="poster" /></a>
+                                </div>
+                                <div class="ticket-container">
+                                    <div class="ticket__content">
+                                        <h4 class="ticket__game-title">{{ game_names[0] }}</h4>
+                                        <p class="ticket__game-slogan">
+                                            {{ game_genre[0] }}
+                                        </p>
+                                        <p class="ticket__dev">{{ game_dev[0] }}</p>
+                                        <p class="ticket__size">{{ game_size[0] }} KB</p>
+                                        <button class="ticket__buy-btn">Buy now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </th>
+                            <th>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[1] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[1] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[1] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[1] }}</p>
+                                            <p class="ticket__size">{{ game_size[1] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[2] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[2] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[2] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[2] }}</p>
+                                            <p class="ticket__size">{{ game_size[2] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            </tr>
+                            <tr>
+                            <td>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[3] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[3] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[3] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[3] }}</p>
+                                            <p class="ticket__size">{{ game_size[3] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[4] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[4] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[4] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[4] }}</p>
+                                            <p class="ticket__size">{{ game_size[4] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[5] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[5] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[5] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[5] }}</p>
+                                            <p class="ticket__size">{{ game_size[5] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[6] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[6] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[6] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[6] }}</p>
+                                            <p class="ticket__size">{{ game_size[6] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[7] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[7] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[7] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[7] }}</p>
+                                            <p class="ticket__size">{{ game_size[7] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="main-container">
+                                    <div class="poster-container">
+                                        <a href="#"><img src="{{ game_pic[8] }}" class="poster" /></a>
+                                    </div>
+                                    <div class="ticket-container">
+                                        <div class="ticket__content">
+                                            <h4 class="ticket__game-title">{{ game_names[8] }}</h4>
+                                            <p class="ticket__game-slogan">
+                                                {{ game_genre[8] }}
+                                            </p>
+                                            <p class="ticket__dev">{{ game_dev[8] }}</p>
+                                            <p class="ticket__size">{{ game_size[8] }} KB</p>
+                                            <button class="ticket__buy-btn">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
                             </table>
-                            </center>
+                        </center>
+                        </div>
+                    
                  </div>
              </div>
          </div>
